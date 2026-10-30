@@ -2,7 +2,7 @@
 
 Memóriajáték orvostanhallgatóknak: a magyar anatómiai kifejezéshez kell megtalálni a latin megfelelőjét (például *combcsont* és *femur*). A projekt tisztán HTML, CSS és JavaScript, külső függőség nélkül.
 
-# Élő demó: https://github.com/And-8-And/umfst-p08-memoria
+# Élő demó: [https://github.com/And-8-And/umfst-p08-memoria](https://and-8-and.github.io/umfst-p08-memoria/)
 
 [Egy teljes játékmenet](jatekmenet.gif)
 
