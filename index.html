@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Memóriajáték orvostanhallgatóknak: párosítsd a magyar anatómiai kifejezést a latin megfelelőjével.">
+  <title>Anatómiai memóriajáték</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="oldal">
+    <header class="fej">
+      <h1>Anatómiai memóriajáték</h1>
+      <p class="bevezeto">Keresd meg minden magyar kifejezés latin párját. Minél kevesebb lépésből és minél gyorsabban sikerül, annál jobb az eredmény.</p>
+    </header>
+
+    <div class="jatek">
+      <aside class="panel" aria-label="Vezérlők és állás">
+        <div class="vezerlok">
+          <div class="mezo">
+            <label for="tema">Téma</label>
+            <select id="tema"></select>
+          </div>
+          <button type="button" id="ujra" class="gomb">Újrakezdés</button>
+        </div>
+
+        <dl class="allas">
+          <div class="mutato">
+            <dt>Lépés</dt>
+            <dd><output id="lepes">0</output></dd>
+          </div>
+          <div class="mutato">
+            <dt>Idő</dt>
+            <dd><output id="ido">0:00</output></dd>
+          </div>
+          <div class="mutato mutato-legjobb">
+            <dt>Legjobb eredmény</dt>
+            <dd><output id="legjobb">Még nincs</output></dd>
+          </div>
+        </dl>
+
+        <section id="gyozelem" class="gyozelem" tabindex="-1" aria-labelledby="gyozelem-cim" hidden>
+          <h2 id="gyozelem-cim">Kész, minden pár megvan</h2>
+          <p id="gyozelem-adat"></p>
+          <p id="gyozelem-rekord"></p>
+          <button type="button" id="gyozelem-ujra" class="gomb">Új játék</button>
+        </section>
+      </aside>
+
+      <div id="tabla" class="tabla" role="group" aria-label="Kártyák"></div>
+    </div>
+
+    <p id="hirado" class="csak-olvaso" aria-live="polite"></p>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

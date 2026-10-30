@@ -1,0 +1,352 @@
+:root {
+  --hatter: #e4ecef;
+  --lap: #f8fbfc;
+  --tinta: #13232c;
+  --halk: #4d6269;
+  --vonal: #c3d1d6;
+  --navy: #17303e;
+  --navy-vilagos: #2a566c;
+  --kiemel: #1f7f8e;
+  --kiemel-sotet: #14606c;
+  --megvan: #2e7d5a;
+  --megvan-hatter: #dff0e7;
+  --hiba: #b8402f;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--hatter);
+  color: var(--tinta);
+  font-family: var(--sans);
+  line-height: 1.5;
+}
+
+.oldal {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+h1,
+h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 5.5vw, 3rem);
+}
+
+.bevezeto {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--halk);
+  font-size: 1.05rem;
+}
+
+.jatek {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 52rem) {
+  .jatek {
+    grid-template-columns: 16rem minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .panel {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
+.panel {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.15rem;
+  background: var(--lap);
+  border: 1px solid var(--vonal);
+  border-radius: 10px;
+}
+
+.vezerlok {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.mezo {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.mezo label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--halk);
+}
+
+select {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  color: var(--tinta);
+  background: #fff;
+  border: 1px solid var(--vonal);
+  border-radius: 6px;
+}
+
+.gomb {
+  padding: 0.65rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--navy);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.gomb:hover {
+  background: var(--navy-vilagos);
+}
+
+select:focus-visible,
+.gomb:focus-visible {
+  outline: 3px solid var(--kiemel);
+  outline-offset: 2px;
+}
+
+.allas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem 1rem;
+  margin: 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--vonal);
+}
+
+.mutato {
+  min-width: 0;
+}
+
+.mutato dt {
+  font-size: 0.85rem;
+  color: var(--halk);
+}
+
+.mutato dd {
+  margin: 0;
+}
+
+.mutato output {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+.mutato-legjobb {
+  grid-column: 1 / -1;
+}
+
+.mutato-legjobb output {
+  font-size: 1.1rem;
+}
+
+.gyozelem {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem;
+  background: var(--megvan-hatter);
+  border-left: 4px solid var(--megvan);
+  border-radius: 6px;
+}
+
+.gyozelem:focus {
+  outline: none;
+}
+
+.gyozelem:focus-visible {
+  outline: 3px solid var(--kiemel);
+  outline-offset: 2px;
+}
+
+.gyozelem h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.gyozelem p {
+  margin: 0;
+}
+
+.tabla {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.4rem, 1.6vw, 0.9rem);
+  max-width: 42rem;
+}
+
+.kartya {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: 12px;
+  perspective: 900px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.kartya:focus-visible {
+  outline: 3px solid var(--kiemel);
+  outline-offset: 3px;
+}
+
+.belso {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.15, 0.2, 1);
+}
+
+.kartya.felforditva .belso {
+  transform: rotateY(180deg);
+}
+
+.lap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  border-radius: 12px;
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.hat {
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 58% 46%, rgba(130, 200, 215, 0.3), transparent 62%),
+    var(--navy);
+  border: 2px solid var(--navy-vilagos);
+  transition: filter 0.15s;
+}
+
+.hat::before,
+.hat::after {
+  content: '';
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  left: 0.5rem;
+}
+
+.hat::before {
+  width: 0.45rem;
+  background: repeating-linear-gradient(to bottom, rgba(205, 230, 238, 0.5) 0 1px, transparent 1px 7px);
+}
+
+.hat::after {
+  width: 0.9rem;
+  background: repeating-linear-gradient(to bottom, rgba(205, 230, 238, 0.75) 0 1px, transparent 1px 35px);
+}
+
+.kartya:not(.felforditva):hover .hat {
+  filter: brightness(1.25);
+}
+
+.elo {
+  background: var(--lap);
+  border: 2px solid var(--vonal);
+  transform: rotateY(180deg);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.nyelv {
+  margin-bottom: 0.3rem;
+  font-size: clamp(0.62rem, 1.5vw, 0.75rem);
+  color: var(--halk);
+}
+
+.szoveg {
+  max-width: 100%;
+  font-family: var(--serif);
+  font-size: clamp(0.7rem, 1.9vw + 0.2rem, 1.1rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.kartya[data-nyelv='latin'] .szoveg {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.kartya.felforditva {
+  cursor: default;
+}
+
+.kartya.hibas .elo {
+  border-color: var(--hiba);
+}
+
+.kartya.megtalalt .elo {
+  background: var(--megvan-hatter);
+  border-color: var(--megvan);
+}
+
+.csak-olvaso {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .belso,
+  .elo,
+  .hat,
+  .gomb {
+    transition: none;
+  }
+}
